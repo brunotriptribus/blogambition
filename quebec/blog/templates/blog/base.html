@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<html>
+    <head>
+<br>
+<br>
+<br>
+<br>
+
+
+<p style="text-align:center;"><img src="/static/Flag_of_Quebec.jpg"/></a></p>
+<title>Le blog des ambitieux!</title>
+<link rel="icon" href="/static/Flag_of_Quebec.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/static/Flag_of_Quebec.ico" type="image/x-icon" />
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    </head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+<a class="navbar-brand" href="http://www.ambitionquebecopen.com" target="_blank"><img class="img-responsive" src="/static/rsz_1rsz_1aqo.jpg" /></a>
+     <a class="navbar-brand" href="http://www.ambitionquebecopen.com" target="_blank">Mouvement Citoyen</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+     <li><a href="#credits">CRÉDITS PHOTOS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+        <h1 style="text-align:center;"><a href="/">Le Blog des Ambitieux!</a></h1>
+        <p style="text-align:center;"><img src="/static/bandeqc2.jpg"/></a></p>
+        <br>
+        <p style="text-align:center;"><b>Bienvenue!</b></p>
+        <br>
+        <p style="text-align:center;">Au cours des prochains mois, des prochaines années, nous tenterons en ces pages de vous faire partager nos diverses ambitions pour le Québec. Avertissement au lecteur, il arrivera parfois, pour ne pas dire souvent, que les divers commentaires soient faits en réaction à des évènements de l’actualité Québécoise. Sachez cependant que nous nous donnons comme mot d’ordre de ne pas pointer du doigt, de ne pas critiquer, de ne pas s’apitoyer. Toujours il ne sera question que de nos ambitions. Et si parfois nous soulignons une problématique ce sera pour mieux définir les contours d’une solution novatrice qui nous viendra à l’esprit.Bonne lecture!<br><br><b> Soyez ambitieux! Construisons ensemble le Québec de demain!</b></p>
+
+    </div>
+</div>
+</div>
+
+    {% if user.is_authenticated %}
+    <a style="color:#010D36" href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <a style="color:#010D36" href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+    <p style="color:#010D36"  class="top-menu">{{ user.username }}<small><br>(<a href="{% url 'django.contrib.auth.views.logout' %}">Sortie</a>)</small></p>
+    {% else %}
+        <a style="color:#0c2eab" href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-fire"></span></a>
+        {% endif %}
+
+
+    <div class="container">
+            {% block content %}
+            {% endblock %}
+    </div>
+<div id="credits" class="container">
+<p class="img-responsive" style="text-align:center;"><img src="/static/bandeqc2.jpg"/></a></p>
+<h3>Cr&eacute;dits photos!</h3>
+       <p>
+      <a> © 1995, Christine Blais, Le monde en images, CCDMD. Fleuve Saint-Laurent
+<br>
+© 2003, Régis Fournier, Le monde en images, CCDMD. Marché Bonsecours
+<br>
+© 2013, Pascale Bouchard, Le monde en images, CCDMD. Regard dans le froid
+<br>
+© 1970, Réal Filion, Le monde en images, CCDMD. Jacques Parizeau, Camille Laurin et René Lévesque
+<br>
+© 2009, Jean-Claude Gamache, CCDMD. Solitude
+<br>
+© 2008, Richard Dumoulin, Le monde en images, CCDMD. Harfang des neiges
+<br>
+© 1970, Réal Filion, Le monde en images, CCDMD. Jacques Parizeau
+<br>
+© 1983, Claude Garneau, Le monde en images, CCDMD. Château Frontenac
+<br>
+© 2013, Léa Debruyne, Le monde en images, CCDMD.  Entre ciel et eau
+
+        </a>
+      </p>
+<br>
+      </div>
+      </div>
+</div>
+
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Une création</p><p><a href="http://www.logilibre.net" target="_blank" data-toggle="tooltip"><img  src="/static/logilibre.jpg"/></a></p>
+</footer>
+
+{% load piwik %} 
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//158.69.206.94/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 2]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//158.69.206.94/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+{% piwik %}
+
+</body>
+</html>
+
